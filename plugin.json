@@ -2,31 +2,72 @@
   "$schema": "https://locaryn.dev/schema/plugin.json/v0.1",
   "apiVersion": "0.1",
   "name": "plugin-image-editor",
-  "version": "1.0.0",
-  "description": "Region image editing, inpainting, canvas masking and outpainting.",
+  "version": "1.1.0",
+  "description": "Extension autonome de retouche d'image, inpainting par masque de sélection, suppression d'éléments et outpainting.",
   "author": "Locaryn Team",
   "license": "Apache-2.0",
   "homepage": "https://github.com/Locaryn/plugin-image-editor",
   "repository": "https://github.com/Locaryn/plugin-image-editor",
-  "keywords": ["image-editor", "inpainting", "region-editing", "masking"],
+  "keywords": [
+    "image-editor",
+    "inpainting",
+    "region-editing",
+    "masking",
+    "outpainting",
+    "brushnet"
+  ],
   "permissions": {
-    "files_read": true,
-    "files_write": true
+    "mcp": {
+      "reason": "Lancer le moteur local de retouche d'images."
+    },
+    "files.read": {
+      "reason": "Lire les images sources et les masques à éditer."
+    },
+    "files.write": {
+      "reason": "Sauvegarder les images retouchées et masques intermédiaires."
+    },
+    "network": {
+      "reason": "Télécharger les modèles d'inpainting depuis HuggingFace."
+    }
   },
-  "capabilities": ["image-editor"],
+  "components": {
+    "skills": [
+      "SKILL.md"
+    ],
+    "mcp": "mcp/mcp.json"
+  },
+  "capabilities": [
+    "image-editor"
+  ],
   "ui_contributions": {
+    "slots": [
+      {
+        "id": "image-editor-catalog",
+        "slot": "marketplace.catalogs",
+        "order": 15,
+        "type": "data",
+        "label": "Modèles de retouche & inpainting",
+        "icon": "edit",
+        "entry": "dist/marketplace.json",
+        "hint": "Ajoute les modèles d'inpainting et retouche au catalogue"
+      },
+      {
+        "id": "image-editor-studio",
+        "slot": "studio.tabs",
+        "order": 15,
+        "label": "Retouche d'image",
+        "icon": "edit",
+        "type": "custom-element",
+        "entry": "dist/ui.js",
+        "tag": "locaryn-image-editor-panel",
+        "hint": "Inpainting, détourage et retouche ciblée"
+      }
+    ],
     "nav_items": [
       {
         "id": "studio",
         "label": "Studio de génération",
         "icon": "image"
-      }
-    ],
-    "studio_tabs": [
-      {
-        "id": "image-editing",
-        "label": "Édition image",
-        "icon": "edit"
       }
     ]
   }

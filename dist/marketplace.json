@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "refreshUrl": "https://raw.githubusercontent.com/Locaryn/plugin-image-editor/main/dist/marketplace.json",
+  "owns": [
+    "sdxl-inpaint",
+    "brushnet",
+    "powerpaint"
+  ],
+  "categories": [
+    {
+      "id": "image-editing",
+      "label": "Retouche d'image",
+      "icon": "edit",
+      "matches": [
+        "image-editor"
+      ],
+      "requires": [
+        "image-editor"
+      ]
+    }
+  ],
+  "models": [
+    {
+      "id": "sdxl-inpaint-1-0",
+      "name": "SDXL Inpainting 1.0",
+      "brand": "Stability AI",
+      "description": "Modèle officiel SDXL 1024px dédié au remplacement et remplissage d'éléments.",
+      "license": "stabilityai-nc-community",
+      "releaseDate": "2023-11-01",
+      "releaseYear": 2023,
+      "capabilities": [
+        "image-editor"
+      ],
+      "variants": [
+        {
+          "size": "FP16 · 6.6B",
+          "params": 6.6,
+          "storageGb": 6.8,
+          "quants": [
+            "fp16"
+          ],
+          "tag": "https://huggingface.co/diffusers/stable-diffusion-xl-1.0-inpainting-0.1/resolve/main/sd_xl_inpaint_0.1.safetensors",
+          "downloads": []
+        }
+      ]
+    }
+  ]
+}

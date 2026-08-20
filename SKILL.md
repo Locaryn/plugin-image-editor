@@ -1,8 +1,8 @@
 ---
 name: image-editing
-description: Edit, inpaint, or remove elements from existing images.
+description: Retouche, inpainting et suppression d'éléments dans des images existantes via des invites textuelles.
 ---
 
-# Image Editing Skill
+# Compétence Retouche d'Image
 
-Use `inpaint_image` to modify specific regions of an existing image.
+Utilisez `inpaint_image` lorsque l'utilisateur souhaite corriger, modifier ou remplacer une partie précise d'une image.
